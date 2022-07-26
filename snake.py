@@ -1,6 +1,10 @@
 from turtle import Turtle
 
 X_COORDS = [(0, 0), (-20, 0), (-40, 0)]
+UP = 90
+DOWN = 270
+LEFT = 180
+RIGHT = 0
 
 class Snake:
 
@@ -22,3 +26,19 @@ class Snake:
             new_y = self.whole_snake[snake_seg - 1].ycor()
             self.whole_snake[snake_seg].goto(new_x, new_y)
         self.whole_snake[0].forward(20)
+
+    def up(self):
+        if self.whole_snake[0].heading() != DOWN:
+            self.whole_snake[0].setheading(UP)
+
+    def down(self):
+        if self.whole_snake[0].heading() != UP:
+            self.whole_snake[0].setheading(DOWN)
+
+    def left(self):
+        if self.whole_snake[0].heading() != RIGHT:
+            self.whole_snake[0].setheading(LEFT)
+
+    def right(self):
+        if self.whole_snake[0].heading() != LEFT:
+            self.whole_snake[0].setheading(RIGHT)
